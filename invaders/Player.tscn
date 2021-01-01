@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/sprites/P-red-a.png" type="Texture" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/P-thrust.png" type="Texture" id=3]
+[ext_resource path="res://Bullet.tscn" type="PackedScene" id=4]
+
+[node name="Player" type="Area2D"]
+collision_mask = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+Bullet = ExtResource( 4 )
+
+[node name="ShipA" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionA" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -4, -26, 4, -26, 12, -10, 26, 4, 26, 8, 24, 10, 12, 14, 10, 18, -10, 18, -12, 14, -24, 10, -26, 8, -26, 4, -12, -10 )
+
+[node name="ThrustSprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="BarrelPosition1" type="Position2D" parent="." groups=[
+"PlayerBarrel",
+]]
+position = Vector2( -9, -16 )
+
+[node name="BarrelPosition2" type="Position2D" parent="." groups=[
+"PlayerBarrel",
+]]
+position = Vector2( 9, -16 )
