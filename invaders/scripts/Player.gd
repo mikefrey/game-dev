@@ -20,10 +20,10 @@ func _ready():
 func _process(delta):
 	var movement_vector = process_input()
 	
-	if movement_vector.y < 0:
-		$ThrustSprite.visible = true
+	if movement_vector.y > 0:
+		$ThrustParticles.visible = false
 	else:
-		$ThrustSprite.visible = false
+		$ThrustParticles.visible = true
 	
 	if movement_vector.length() == 0:
 		movement_vector = velocity.normalized() * -1
@@ -76,3 +76,4 @@ func shoot():
 		var b = Bullet.instance()
 		owner.add_child(b)
 		b.global_transform = barrel.global_transform
+		barrel.get_child(0).emitting = true

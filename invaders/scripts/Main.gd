@@ -11,6 +11,10 @@ func _ready():
 
 
 func _process(delta):
+	var bg_pos = $Background.region_rect.position.y - 10
+	if bg_pos <= 0:
+		bg_pos += 768
+	$Background.region_rect.position.y = bg_pos
 	pass
 
 
@@ -37,6 +41,7 @@ func spawn_enemy():
 
 func on_enemy_killed(points):
 	score += points
+	$HUD.set_score(score)
 
 
 func _on_StartTimer_timeout():
