@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://waves/drone1/DroneWave1.gd" type="Script" id=1]
+[ext_resource path="res://enemies/drone/Drone.tscn" type="PackedScene" id=2]
+
+[node name="DroneWave1" type="Node2D"]
+script = ExtResource( 1 )
+Drone = ExtResource( 2 )
+
+[node name="SpawnA" type="Position2D" parent="."]
+position = Vector2( 100, -20 )
+
+[node name="SpawnB" type="Position2D" parent="."]
+position = Vector2( 233, -20 )
+
+[node name="SpawnC" type="Position2D" parent="."]
+position = Vector2( 367, -20 )
+
+[node name="SpawnD" type="Position2D" parent="."]
+position = Vector2( 500, -20 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
