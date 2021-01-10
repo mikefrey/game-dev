@@ -38,7 +38,9 @@ scale = 4.0
 scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" groups=[
+"Players",
+]]
 collision_mask = 2
 script = ExtResource( 2 )
 __meta__ = {

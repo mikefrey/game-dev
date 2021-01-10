@@ -8,9 +8,68 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://enemies/Enemy.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "EnemyProjectile",
+"language": "GDScript",
+"path": "res://enemies/projectiles/base.gd"
+}, {
+"base": "Particles2D",
+"class": "Explosion",
+"language": "GDScript",
+"path": "res://enemies/explosion/Explosion.gd"
+}, {
+"base": "CanvasLayer",
+"class": "HUD",
+"language": "GDScript",
+"path": "res://hud/Hud.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "KEnemy",
+"language": "GDScript",
+"path": "res://enemies/KEnemy.gd"
+}, {
+"base": "EnemyProjectile",
+"class": "Orb",
+"language": "GDScript",
+"path": "res://enemies/projectiles/Orb.gd"
+}, {
+"base": "Area2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://player/Player.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://player/Projectile.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://state_machine.gd"
+}, {
+"base": "Node2D",
+"class": "Waves",
+"language": "GDScript",
+"path": "res://waves/Waves.gd"
+} ]
 _global_script_class_icons={
-
+"Enemy": "",
+"EnemyProjectile": "",
+"Explosion": "",
+"HUD": "",
+"KEnemy": "",
+"Orb": "",
+"Player": "",
+"Projectile": "",
+"StateMachine": "",
+"Waves": ""
 }
 
 [application]

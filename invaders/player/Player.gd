@@ -1,11 +1,15 @@
 extends Area2D
 
+class_name Player
+
 export (PackedScene) var Bullet
 
 signal hit
 
 const max_speed = 400
 const acceleration = 40
+
+const deadzone = 0.2
 
 var velocity = Vector2()
 var screen_size
@@ -41,9 +45,9 @@ func _process(delta):
 		velocity.x = 0
 		velocity.y = 0
 		
-	position += velocity * delta
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
+	global_position += velocity * delta
+	global_position.x = clamp(global_position.x, 0, screen_size.x)
+	global_position.y = clamp(global_position.y, 0, screen_size.y)
 
 
 func start(pos):
@@ -54,6 +58,16 @@ func process_input():
 	var movement_vector = Vector2()
 	movement_vector.x = 0
 	movement_vector.y = 0
+	
+	if Input.get_connected_joypads().size() > 0:
+		var xAxis = Input.get_joy_axis(0, JOY_AXIS_0)
+		var yAxis = Input.get_joy_axis(0, JOY_AXIS_1)
+		
+		if abs(xAxis) > deadzone:
+			movement_vector.x = xAxis
+			
+		if abs(yAxis) > deadzone:
+			movement_vector.y = yAxis
 	
 	if Input.is_action_pressed("ui_up"):
 		movement_vector.y -= 1

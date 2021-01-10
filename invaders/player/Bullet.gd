@@ -1,16 +1,5 @@
-extends RigidBody2D
+extends Projectile
 
-var velocity = Vector2(0, -750)
-var damage = 10
-
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	#linear_velocity = velocity
-	apply_impulse(Vector2.ZERO, velocity)
-
-
-func _on_VisibilityNotifier2D_screen_exited():
-	queue_free()
-	
-	
-func get_damage():
-	return damage
+	velocity = Vector2(0, -750)

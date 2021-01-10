@@ -1,21 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/space.png" type="Texture" id=3]
-[ext_resource path="res://enemies/drone/Drone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://hud/Hud.tscn" type="PackedScene" id=5]
-[ext_resource path="res://waves/drone1/DroneWave1.tscn" type="PackedScene" id=6]
-
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 561.361, -2.32241, 0, 0, 0, 0, 36.1019, -1.9887 )
-}
+[ext_resource path="res://waves/Waves.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D"]
 position = Vector2( -0.749146, 0 )
 script = ExtResource( 2 )
-Drone = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
@@ -42,22 +35,13 @@ region_rect = Rect2( 0, 0, 4800, 8096 )
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 300, 850 )
 
-[node name="MobSpawnPath" type="Path2D" parent="."]
-curve = SubResource( 1 )
-
-[node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawnPath"]
-position = Vector2( 561.361, -2.32241 )
-rotation = 3.14096
-
-[node name="MobTimer" type="Timer" parent="."]
-
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
+one_shot = true
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 
-[node name="DroneWave1" parent="." instance=ExtResource( 6 )]
+[node name="Waves" parent="." instance=ExtResource( 6 )]
 [connection signal="hit" from="Player" to="." method="damage"]
-[connection signal="timeout" from="MobTimer" to="." method="spawn_enemy"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
-[connection signal="spawn_mob" from="DroneWave1" to="." method="_on_spawn_mob"]
+[connection signal="spawn_mob" from="Waves" to="." method="_on_spawn_mob"]

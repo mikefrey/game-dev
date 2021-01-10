@@ -1,9 +1,10 @@
-extends Enemy
+extends KEnemy
 
 export (PackedScene) var OrbScene
 
-var sight_range = 600
-var rotation_speed = 0.01
+export var sight_range = 600
+export var rotation_speed = 0.01
+
 onready var players = get_tree().get_nodes_in_group("Players")
 
 onready var Wants:Line2D = $Wants
@@ -19,8 +20,10 @@ func _process(delta):
 	pass
 
 
-func die():
-	.die()
+func hit(damage):
+	hp -= damage
+	if hp <= 0:
+		die()
 
 
 func aim(delta):
@@ -41,13 +44,10 @@ func aim(delta):
 func fire(delta):
 	var orb: Orb = OrbScene.instance()
 	orb.global_position = $WeaponPosition.global_position
+	orb.direction = Vector2(cos(rotation), sin(rotation))
 	emit_signal("enemy_fired", orb)
 	$AttackTimer.start()
 	
-	
-func move(delta):
-	position += velocity * delta
-
 
 func should_aim() -> bool:
 	var player = closest_player()
@@ -62,7 +62,7 @@ func should_fire() -> bool:
 	var player = closest_player()
 	var rotation_vector = Vector2(cos(rotation), sin(rotation))
 	var d = (player.position - position).normalized().dot(rotation_vector)
-	return d > 0.5
+	return d > 0.99
 	
 
 func _on_VisibilityNotifier2D_screen_exited():
@@ -70,7 +70,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 
 func closest_player() -> Node2D:
-	#var players = get_tree().get_nodes_in_group("Players")
 	return find_closest(players)
 
 

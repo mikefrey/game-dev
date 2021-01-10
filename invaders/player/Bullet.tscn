@@ -1,17 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/sprites/Bullets.png" type="Texture" id=1]
 [ext_resource path="res://player/Bullet.gd" type="Script" id=2]
+[ext_resource path="res://enemies/explosion/HitParticles.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.91645
 height = 8.48898
 
-[node name="Bullet" type="RigidBody2D"]
+[node name="Bullet" type="KinematicBody2D" groups=[
+"PlayerProjectile",
+]]
 collision_mask = 2
-gravity_scale = 0.0
-linear_damp = 0.0
 script = ExtResource( 2 )
+HitEffect = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -24,4 +26,3 @@ shape = SubResource( 1 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( 0.0744097, 0.0496064 )
 scale = Vector2( 0.327835, 0.737087 )
-[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -1,5 +1,6 @@
 extends Particles2D
 
+class_name Explosion
 
 func _ready():
 	$Timer.wait_time = self.lifetime + 0.1

@@ -1,0 +1,113 @@
+[
+    {
+        "name": "Wave 1",
+        "spawns": [
+            { "x": 100, "y": -20 },
+            { "x": 233, "y": -20 },
+            { "x": 366, "y": -20 },
+            { "x": 500, "y": -20 }
+        ],
+        "vollies": [
+            {
+                "delay": 2,
+                "enemies": [
+                    { "type": "Drone", "spawn": 0 },
+                    { "type": "Drone", "spawn": 3 }
+                ]
+            },
+            {
+                "delay": 2,
+                "enemies": [
+                    { "type": "Drone", "spawn": 1 },
+                    { "type": "Drone", "spawn": 2 }
+                ]
+            },
+            {
+                "delay": 2,
+                "enemies": [
+                    { "type": "Drone", "spawn": 0 },
+                    { "type": "Drone", "spawn": 1 }
+                ]
+            },
+            {
+                "delay": 2,
+                "enemies": [
+                    { "type": "Drone", "spawn": 2 },
+                    { "type": "Drone", "spawn": 3 }
+                ]
+            },
+            {
+                "delay": 2,
+                "enemies": [
+                    { "type": "Drone", "spawn": 0 },
+                    { "type": "Drone", "spawn": 3 }
+                ]
+            },
+            {
+                "delay": 2,
+                "enemies": [
+                    { "type": "Drone", "spawn": 0 },
+                    { "type": "Drone", "spawn": 1 },
+                    { "type": "Drone", "spawn": 2 },
+                    { "type": "Drone", "spawn": 3 }
+                ]
+            }
+        ]
+    },
+    
+    {
+        "name": "Wave 2",
+        "spawns": [
+            { "id": 1, "x": 100, "y": -20 },
+            { "id": 2, "x": 233, "y": -20 },
+            { "id": 3, "x": 366, "y": -20 },
+            { "id": 4, "x": 500, "y": -20 }
+        ],
+        "vollies": [
+            {
+                "delay": 2,
+                "enemies": [
+                    { "type": "Drone", "spawn": 0 },
+                    { "type": "Drone", "spawn": 3 }
+                ]
+            },
+            {
+                "delay": 2,
+                "enemies": [
+                    { "type": "Drone", "spawn": 1 },
+                    { "type": "Drone", "spawn": 2 }
+                ]
+            },
+            {
+                "delay": 2,
+                "enemies": [
+                    { "type": "Drone", "spawn": 0 },
+                    { "type": "Drone", "spawn": 1 }
+                ]
+            },
+            {
+                "delay": 2,
+                "enemies": [
+                    { "type": "Drone", "spawn": 2 },
+                    { "type": "Drone", "spawn": 3 }
+                ]
+            },
+            {
+                "delay": 2,
+                "enemies": [
+                    { "type": "Drone", "spawn": 0 },
+                    { "type": "Drone", "spawn": 3 }
+                ]
+            },
+            {
+                "delay": 2,
+                "enemies": [
+                    { "type": "Drone", "spawn": 0 },
+                    { "type": "Drone", "spawn": 1 },
+                    { "type": "Drone", "spawn": 2 },
+                    { "type": "Drone", "spawn": 3 }
+                ]
+            }
+        ]
+    }
+]

@@ -1,8 +1,6 @@
 extends Node2D
 
-export (PackedScene) var Drone
-
-var score
+var score := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,7 +9,7 @@ func _ready():
 
 
 func _process(delta):
-	var bg_pos = $Background.region_rect.position.y - 10
+	var bg_pos:float = $Background.region_rect.position.y - 10
 	if bg_pos <= 0:
 		bg_pos += 768
 	$Background.region_rect.position.y = bg_pos
@@ -29,29 +27,21 @@ func new_game():
 	$StartTimer.start()
 
 
-func spawn_enemy():
-	return
-	$MobSpawnPath/MobSpawnLocation.offset = randi()
-	
-	var mob = Drone.instance()
-	add_child(mob)
-	mob.add_to_group("Enemies", true)
-	mob.connect("enemy_killed", self, "on_enemy_killed")
-	
-	mob.position = $MobSpawnPath/MobSpawnLocation.position
-
-
-func on_enemy_killed(points):
+func on_enemy_killed(points: int):
 	score += points
 	$HUD.set_score(score)
 
 
 func _on_StartTimer_timeout():
-	$MobTimer.start()
-
+	$Waves.start()
 
 
 func _on_spawn_mob(mob):
 	add_child(mob)
 	mob.add_to_group("Enemies", true)
 	mob.connect("enemy_killed", self, "on_enemy_killed")
+	mob.connect("enemy_fired", self, "on_enemy_fired")
+
+
+func on_enemy_fired(projectile: EnemyProjectile):
+	add_child(projectile)
