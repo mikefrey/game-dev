@@ -11,45 +11,45 @@
             {
                 "delay": 2,
                 "enemies": [
-                    { "type": "Drone", "spawn": 0 },
-                    { "type": "Drone", "spawn": 3 }
+                    { "type": "drone", "spawn": 0 },
+                    { "type": "drone", "spawn": 3 }
                 ]
             },
             {
                 "delay": 2,
                 "enemies": [
-                    { "type": "Drone", "spawn": 1 },
-                    { "type": "Drone", "spawn": 2 }
+                    { "type": "drone", "spawn": 1 },
+                    { "type": "drone", "spawn": 2 }
                 ]
             },
             {
                 "delay": 2,
                 "enemies": [
-                    { "type": "Drone", "spawn": 0 },
-                    { "type": "Drone", "spawn": 1 }
+                    { "type": "drone", "spawn": 0 },
+                    { "type": "drone", "spawn": 1 }
                 ]
             },
             {
                 "delay": 2,
                 "enemies": [
-                    { "type": "Drone", "spawn": 2 },
-                    { "type": "Drone", "spawn": 3 }
+                    { "type": "drone", "spawn": 2 },
+                    { "type": "drone", "spawn": 3 }
                 ]
             },
             {
                 "delay": 2,
                 "enemies": [
-                    { "type": "Drone", "spawn": 0 },
-                    { "type": "Drone", "spawn": 3 }
+                    { "type": "drone", "spawn": 0 },
+                    { "type": "drone", "spawn": 3 }
                 ]
             },
             {
                 "delay": 2,
                 "enemies": [
-                    { "type": "Drone", "spawn": 0 },
-                    { "type": "Drone", "spawn": 1 },
-                    { "type": "Drone", "spawn": 2 },
-                    { "type": "Drone", "spawn": 3 }
+                    { "type": "drone", "spawn": 0 },
+                    { "type": "drone", "spawn": 1 },
+                    { "type": "drone", "spawn": 2 },
+                    { "type": "drone", "spawn": 3 }
                 ]
             }
         ]
@@ -67,45 +67,45 @@
             {
                 "delay": 2,
                 "enemies": [
-                    { "type": "Drone", "spawn": 0 },
-                    { "type": "Drone", "spawn": 3 }
+                    { "type": "drone", "spawn": 0 },
+                    { "type": "drone", "spawn": 3 }
                 ]
             },
             {
                 "delay": 2,
                 "enemies": [
-                    { "type": "Drone", "spawn": 1 },
-                    { "type": "Drone", "spawn": 2 }
+                    { "type": "drone", "spawn": 1 },
+                    { "type": "drone", "spawn": 2 }
                 ]
             },
             {
                 "delay": 2,
                 "enemies": [
-                    { "type": "Drone", "spawn": 0 },
-                    { "type": "Drone", "spawn": 1 }
+                    { "type": "drone", "spawn": 0 },
+                    { "type": "drone", "spawn": 1 }
                 ]
             },
             {
                 "delay": 2,
                 "enemies": [
-                    { "type": "Drone", "spawn": 2 },
-                    { "type": "Drone", "spawn": 3 }
+                    { "type": "drone", "spawn": 2 },
+                    { "type": "drone", "spawn": 3 }
                 ]
             },
             {
                 "delay": 2,
                 "enemies": [
-                    { "type": "Drone", "spawn": 0 },
-                    { "type": "Drone", "spawn": 3 }
+                    { "type": "drone", "spawn": 0 },
+                    { "type": "drone", "spawn": 3 }
                 ]
             },
             {
                 "delay": 2,
                 "enemies": [
-                    { "type": "Drone", "spawn": 0 },
-                    { "type": "Drone", "spawn": 1 },
-                    { "type": "Drone", "spawn": 2 },
-                    { "type": "Drone", "spawn": 3 }
+                    { "type": "drone", "spawn": 0 },
+                    { "type": "drone", "spawn": 1 },
+                    { "type": "drone", "spawn": 2 },
+                    { "type": "drone", "spawn": 3 }
                 ]
             }
         ]

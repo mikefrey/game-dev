@@ -1,13 +1,46 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://waves/Waves.gd" type="Script" id=1]
-[ext_resource path="res://enemies/kdrone/KDrone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemies/drone/drone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://enemies/bomber/bomber.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
 
 [node name="Waves" type="Node2D"]
 script = ExtResource( 1 )
 Drone = ExtResource( 2 )
+Bomber = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="LabelTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="CharacterTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 267.0
+margin_right = 601.0
+margin_bottom = 345.0
+custom_fonts/font = SubResource( 1 )
+text = "Wave 1"
+align = 1
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="LabelTimer" to="." method="_on_LabelTimer_timeout"]
+[connection signal="timeout" from="CharacterTimer" to="." method="_on_CharacterTimer_timeout"]

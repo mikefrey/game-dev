@@ -3,10 +3,10 @@
 [ext_resource path="res://enemies/explosion/explosion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/projectiles/orb.tscn" type="PackedScene" id=2]
 [ext_resource path="res://enemies/enemies.png" type="Texture" id=3]
-[ext_resource path="res://enemies/drone/state_machine.gd" type="Script" id=4]
+[ext_resource path="res://enemies/bomber/state_machine.gd" type="Script" id=4]
 [ext_resource path="res://enemies/drone/drone.gd" type="Script" id=5]
 
-[node name="Drone" type="KinematicBody2D"]
+[node name="Bomber" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 2147483653
 script = ExtResource( 5 )
@@ -14,8 +14,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 ExplosionScene = ExtResource( 1 )
-hp = 55
+hp = 75
+point_value = 1500
 OrbScene = ExtResource( 2 )
+sight_range = null
+rotation_speed = null
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 4 )
@@ -25,21 +28,21 @@ rotation = 1.5708
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 region_enabled = true
-region_rect = Rect2( 19, 21, 26, 21 )
+region_rect = Rect2( 145, 20, 30, 21 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( -1, 0 )
 rotation = 1.5708
-polygon = PoolVector2Array( 2, -22, 8, -16, 26, -16, 26, 12, 12, 12, 12, 20, -12, 20, -12, 12, -26, 12, -26, -16, -8, -16, -2, -22 )
+polygon = PoolVector2Array( -9.99993, 20, -11.9999, 18, -12, 12, -20, 12.0001, -20, 14.0001, -21.9999, 16.0001, -23.9999, 16.0001, -30, 10.0001, -30.0001, -13.9999, -22.0001, -21.9999, -20.0001, -21.9999, -18.0001, -19.9999, -18, -5.99993, -16, -5.99994, -12, -9.99996, -12.0001, -18, -10.0001, -20, -8.00007, -20, -4.00006, -16, -4.00007, -20, -2.00008, -22, 1.99992, -22, 3.99993, -20, 3.99994, -16, 7.99993, -20, 9.99993, -20, 11.9999, -18, 12, -10, 16, -6.00006, 18, -6.00007, 17.9999, -20.0001, 19.9999, -22.0001, 21.9999, -22.0001, 29.9999, -14.0001, 30, 9.99989, 24.0001, 15.9999, 22.0001, 15.9999, 18, 11.9999, 12, 12, 12.0001, 18, 10.0001, 20 )
 
 [node name="WeaponPosition" type="Position2D" parent="."]
-position = Vector2( 24, 0 )
+position = Vector2( 22, 0 )
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 2.0
 one_shot = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 1.15263, -0.0936453 )
-scale = Vector2( 2.40755, 2.73242 )
+position = Vector2( 1.3113e-06, -2.38419e-07 )
+scale = Vector2( 2.2, 3.1 )
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

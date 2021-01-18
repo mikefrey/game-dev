@@ -1,8 +1,15 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://enemies/kdrone/KDrone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/shipa.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/drone/drone.tscn" type="PackedScene" id=2]
 [ext_resource path="res://test.gd" type="Script" id=3]
+
+
+
+
+
+
+
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 288.473, 836.234 )

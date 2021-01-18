@@ -1,27 +1,28 @@
-extends Area2D
-
 class_name Enemy
+extends KinematicBody2D
 
 export (PackedScene) var ExplosionScene
+export var hp := 18
+export var point_value := 1000
+export var speed = 200
+
+var direction = Vector2.DOWN
 
 signal enemy_killed
 signal enemy_fired
 
-var hp := 18
-var point_value := 1000
-var velocity = Vector2(0, 0)
-
+onready var players = get_tree().get_nodes_in_group("Players")
+var screen_rect
 
 func _ready():
-	pass
-
-
-func _process(delta:float):
+	screen_rect = get_viewport_rect()
 	pass
 
 
 func move(delta:float):
-	position += velocity * delta
+	var collision = move_and_collide(direction * speed * delta)
+	if collision:
+		print("KEnemy Collision Detected")
 
 
 func die():
@@ -35,16 +36,19 @@ func die():
 	emit_signal("enemy_killed", point_value)
 
 
-func _on_area_shape_entered(area_id, area:Area2D, area_shape, self_shape):
-	if area.is_in_group("PlayerProjectile"):
-		var damage = area.get_damage()
-		
-		$HitParticles.global_position = area.global_position
-		$HitParticles.emitting = true
-		
-		hp -= damage
-		
-		if hp <= 0:
-			die()
-			
-		area.queue_free()
+func closest_target() -> Node2D:
+	return find_closest(players)
+
+
+func find_closest(nodes:Array) -> Node2D:
+	var closest:Node2D = null
+	var length := INF
+
+	for n in nodes:
+		var dist = (n.position - position).length()
+		if dist < length:
+			closest = n
+			length = dist
+	
+	return closest
+	

@@ -1,26 +1,27 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://enemies/projectiles/orb.gd" type="Script" id=1]
-[ext_resource path="res://player/bullet.shader" type="Shader" id=2]
-[ext_resource path="res://enemies/projectiles/bullets.png" type="Texture" id=3]
+[ext_resource path="res://player/bullet.shader" type="Shader" id=1]
+[ext_resource path="res://enemies/projectiles/bullets.png" type="Texture" id=2]
+[ext_resource path="res://enemies/projectiles/orb.gd" type="Script" id=3]
 
 [sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 2 )
-shader_param/glow_color = Color( 0.403922, 0, 0.631373, 1 )
-shader_param/emission_texture = ExtResource( 3 )
+shader = ExtResource( 1 )
+shader_param/glow_color = Color( 0.921569, 1, 0, 1 )
+shader_param/emission_texture = ExtResource( 2 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 6.64605
 
-[node name="Orb" type="KinematicBody2D"]
+[node name="Missile" type="KinematicBody2D"]
 collision_layer = 8
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 1 )
-texture = ExtResource( 3 )
+rotation = 1.5708
+texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 26, 2, 7, 7 )
+region_rect = Rect2( 15, 2, 6, 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

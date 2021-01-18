@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://enemies/explosion/HitParticles.gd" type="Script" id=1]
+[ext_resource path="res://enemies/explosion/hit_particles.gd" type="Script" id=1]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.422222, 1 )

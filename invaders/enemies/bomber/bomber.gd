@@ -1,9 +1,9 @@
 extends Enemy
 
-export (PackedScene) var OrbScene
+export (PackedScene) var MissileScene
 
 export var sight_range = 600
-export var rotation_speed = 1
+export var rotation_speed = 0.01
 
 
 func _ready():
@@ -21,10 +21,10 @@ func hit(damage):
 
 
 func fire(delta):
-	var orb: Orb = OrbScene.instance()
-	orb.global_position = $WeaponPosition.global_position
-	orb.direction = Vector2(cos(rotation), sin(rotation))
-	emit_signal("enemy_fired", orb)
+	var missile: Missile = MissileScene.instance()
+	missile.global_position = $WeaponPosition.global_position
+	missile.direction = Vector2(cos(rotation), sin(rotation))
+	emit_signal("enemy_fired", missile)
 	$AttackTimer.start()
 
 

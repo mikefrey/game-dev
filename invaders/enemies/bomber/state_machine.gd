@@ -3,7 +3,6 @@ extends StateMachine
 
 func _ready():
 	add_state("moving")
-	add_state("aiming")
 	add_state("firing")
 	add_state("dying")
 
@@ -12,31 +11,24 @@ func _ready():
 
 func _state_logic(delta):
 	match state:
-		states.aiming:
-			return parent.aim(delta)
 		states.firing:
 			return parent.fire(delta)
+		states.dying:
+			return parent.die()
 
 	return parent.move(delta)
 
 
-
 func _get_transition(delta):
+	if parent.should_die():
+		return states.dying
+	
 	match state:
-		states.aiming:
-			if parent.should_fire():
-				return states.firing
-			if parent.should_aim():
-				return states.aiming
 		states.firing:
-			if parent.should_aim():
-				return states.aiming
 			return states.moving
 		states.moving:
 			if parent.should_fire():
 				return states.firing
-			if parent.should_aim():
-				return states.aiming
 
 	return states.moving
 

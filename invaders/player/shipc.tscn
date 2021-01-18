@@ -1,0 +1,169 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://player/ships.png" type="Texture" id=1]
+[ext_resource path="res://player/player.gd" type="Script" id=2]
+[ext_resource path="res://player/bullet.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.740741, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 0.546875, 0, 0, 1, 0.545098, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=11]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.718182 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=12]
+curve = SubResource( 11 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+trail_size_modifier = SubResource( 6 )
+emission_shape = 1
+emission_sphere_radius = 5.0
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 150.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 4.0
+scale_curve = SubResource( 12 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0, 0.70068, 1 )
+colors = PoolColorArray( 0, 0.742188, 1, 1, 0, 0.742188, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 1
+emission_sphere_radius = 3.0
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 15.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 150.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 1.5
+scale_curve = SubResource( 12 )
+color_ramp = SubResource( 9 )
+
+[node name="ShipC" type="KinematicBody2D" groups=[
+"Players",
+]]
+collision_mask = 26
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+Bullet = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -4 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 138, 19, 44, 27 )
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -4, -31, 4, -31, 12, -21, 12, -9, 28, -7, 44, 3, 44, 11, 42, 13, 10, 17, 10, 23, -10, 23, -10, 17, -42, 13, -44, 11, -44, 3, -28, -7, -12, -9, -12, -21 )
+
+[node name="ThrustParticles" type="Particles2D" parent="."]
+position = Vector2( 0, 26 )
+lifetime = 0.1
+speed_scale = 2.0
+explosiveness = 0.8
+process_material = SubResource( 13 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="BarrelPosition1" type="Position2D" parent="." groups=[
+"PlayerBarrel",
+]]
+position = Vector2( -20, -13 )
+
+[node name="Particles" type="Particles2D" parent="BarrelPosition1"]
+position = Vector2( 0.0727768, -0.263451 )
+emitting = false
+amount = 4
+lifetime = 0.1
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 10 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="BarrelPosition2" type="Position2D" parent="." groups=[
+"PlayerBarrel",
+]]
+position = Vector2( 20, -13 )
+
+[node name="Particles" type="Particles2D" parent="BarrelPosition2"]
+position = Vector2( 0.0727768, -0.263451 )
+emitting = false
+amount = 4
+lifetime = 0.1
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource( 10 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="BarrelPosition3" type="Position2D" parent="." groups=[
+"PlayerBarrel",
+]]
+position = Vector2( -36, -7 )
+
+[node name="Particles" type="Particles2D" parent="BarrelPosition3"]
+position = Vector2( 0.0727768, -0.263451 )
+emitting = false
+amount = 4
+lifetime = 0.1
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource( 10 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="BarrelPosition4" type="Position2D" parent="." groups=[
+"PlayerBarrel",
+]]
+position = Vector2( 36, -7 )
+
+[node name="Particles" type="Particles2D" parent="BarrelPosition4"]
+position = Vector2( 0.0727768, -0.263451 )
+emitting = false
+amount = 4
+lifetime = 0.1
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource( 10 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="EnergyTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+[connection signal="timeout" from="EnergyTimer" to="." method="_on_EnergyTimer_timeout"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/drone.png-36b348f13af66d0b536a5f5181030d47.stex"
+path="res://.import/barrels3.png-26cb46b82a77cafa6eea1dbb20d759fa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/drone/drone.png"
-dest_files=[ "res://.import/drone.png-36b348f13af66d0b536a5f5181030d47.stex" ]
+source_file="res://player/barrels3.png"
+dest_files=[ "res://.import/barrels3.png-26cb46b82a77cafa6eea1dbb20d759fa.stex" ]
 
 [params]
 
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
