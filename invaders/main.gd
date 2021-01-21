@@ -3,6 +3,8 @@ extends Node2D
 onready var title = $Title
 onready var game = $Game
 onready var pauseMenu = $PauseMenu
+onready var gameOver = $GameOver
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,3 +22,10 @@ func new_game():
 	pauseMenu.set_process_input(true)
 	game.new_game()	
 
+
+func _on_Game_victory():
+	gameOver.victory()
+
+
+func _on_Game_defeat():
+	gameOver.defeat()

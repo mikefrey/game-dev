@@ -4,6 +4,7 @@ extends KinematicBody2D
 export (PackedScene) var Bullet
 
 signal hit
+signal died
 
 const max_speed = 400
 const acceleration = 40
@@ -132,3 +133,4 @@ func die():
 	deathParticles.emitting = true
 	is_dead = true
 	visible = false
+	emit_signal("died")

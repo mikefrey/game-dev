@@ -11,15 +11,15 @@
             {
                 "delay": 2,
                 "enemies": [
-                    { "type": "drone", "spawn": 0 },
-                    { "type": "drone", "spawn": 3 }
+                    { "type": "bomber", "spawn": 0 },
+                    { "type": "bomber", "spawn": 3 }
                 ]
             },
             {
                 "delay": 2,
                 "enemies": [
-                    { "type": "drone", "spawn": 1 },
-                    { "type": "drone", "spawn": 2 }
+                    { "type": "bomber", "spawn": 1 },
+                    { "type": "bomber", "spawn": 2 }
                 ]
             },
             {

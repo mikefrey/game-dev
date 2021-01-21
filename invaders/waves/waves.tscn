@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://waves/Waves.gd" type="Script" id=1]
+[ext_resource path="res://waves/waves.gd" type="Script" id=1]
 [ext_resource path="res://enemies/drone/drone.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://enemies/bomber/bomber.tscn" type="PackedScene" id=4]

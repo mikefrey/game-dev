@@ -1,15 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://player/shipa.tscn" type="PackedScene" id=1]
-[ext_resource path="res://enemies/drone/drone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemies/bomber/bomber.tscn" type="PackedScene" id=2]
 [ext_resource path="res://test.gd" type="Script" id=3]
-
-
-
-
-
-
-
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 288.473, 836.234 )
@@ -18,5 +11,5 @@ script = ExtResource( 3 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2.43004, 10.3716 )
 
-[node name="Drone" parent="." instance=ExtResource( 2 )]
-position = Vector2( 17.6745, -704.246 )
+[node name="Bomber" parent="." instance=ExtResource( 2 )]
+position = Vector2( 18.5654, -731.864 )

@@ -65,6 +65,9 @@ margin_right = 540.0
 margin_bottom = 229.0
 theme = ExtResource( 2 )
 text = "Quit"
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="DebounceTimer" type="Timer" parent="."]
 wait_time = 0.2

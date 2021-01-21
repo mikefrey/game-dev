@@ -24,6 +24,7 @@ func fire(delta):
 	var missile: Missile = MissileScene.instance()
 	missile.global_position = $WeaponPosition.global_position
 	missile.direction = Vector2(cos(rotation), sin(rotation))
+	missile.rotation = rotation
 	emit_signal("enemy_fired", missile)
 	$AttackTimer.start()
 

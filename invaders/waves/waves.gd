@@ -1,10 +1,10 @@
-extends Node2D
-
 class_name Waves
+extends Node2D
 
 export (PackedScene) var Drone
 export (PackedScene) var Bomber
 
+signal victory
 signal spawn_mob
 
 onready var timer = $Timer
@@ -15,7 +15,7 @@ onready var label = $Label
 var waves = null
 
 var wave_position = -1
-var volley_position = 0
+var volley_position = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,7 +28,7 @@ func start():
 
 func next_wave():
 	wave_position += 1
-	volley_position = 0
+	volley_position = -1
 
 	if wave_position >= waves.size():
 		return show_victory()
@@ -49,7 +49,6 @@ func advance():
 
 
 func get_mob(name):
-	print("get mob " + name)
 	# TODO: don't use string matching
 	match name:
 		"drone":
@@ -120,5 +119,4 @@ func load_json(path):
 
 
 func show_victory():
-	label.text = "Victory"
-	label.visible_characters = -1
+	emit_signal("victory")

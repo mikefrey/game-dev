@@ -5,12 +5,12 @@
 [ext_resource path="res://enemies/explosion/hit_particles.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/bullet.shader" type="Shader" id=4]
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 4 )
 shader_param/glow_color = Color( 0, 0.552941, 1, 1 )
 shader_param/emission_texture = ExtResource( 1 )
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 2.91645
 height = 8.48898
 
@@ -23,14 +23,14 @@ script = ExtResource( 2 )
 HitEffect = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 3 )
+material = SubResource( 1 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 5.059, 2, 2, 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false

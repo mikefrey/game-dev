@@ -6,8 +6,8 @@ export var damage:float = 0.0
 
 onready var players = get_tree().get_nodes_in_group("Players")
 
-var direction = Vector2.ZERO
-
+var direction:Vector2 = Vector2.ZERO
+var is_dead:bool = false
 
 func _ready():
 	add_to_group("EnemyProjectiles", true)
@@ -15,9 +15,13 @@ func _ready():
 
 
 func move(delta:float) -> void:
+	if is_dead:
+		return
+	
 	var collision = move_and_collide(direction * speed * delta)
 	if collision:
-		queue_free()
+		is_dead = true
+		_die()
 		if collision.collider.has_method("hit"):
 			collision.collider.hit(damage)
 
@@ -37,3 +41,11 @@ func find_closest(nodes:Array) -> Node2D:
 			length = dist
 	
 	return closest
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	_die()
+
+
+func _die():
+	pass

@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://enemies/enemy.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "EnemyProjectile",
 "language": "GDScript",
 "path": "res://enemies/projectiles/base.gd"
@@ -24,12 +29,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://hud/hud.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "KEnemy",
+"base": "EnemyProjectile",
+"class": "Missile",
 "language": "GDScript",
-"path": "res://enemies/enemy.gd"
+"path": "res://enemies/projectiles/missile.gd"
 }, {
-"base": "Reference",
+"base": "EnemyProjectile",
 "class": "Orb",
 "language": "GDScript",
 "path": "res://enemies/projectiles/orb.gd"
@@ -52,13 +57,14 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Waves",
 "language": "GDScript",
-"path": "res://waves/Waves.gd"
+"path": "res://waves/waves.gd"
 } ]
 _global_script_class_icons={
+"Enemy": "",
 "EnemyProjectile": "",
 "Explosion": "",
 "HUD": "",
-"KEnemy": "",
+"Missile": "",
 "Orb": "",
 "Player": "",
 "Projectile": "",

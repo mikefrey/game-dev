@@ -1,5 +1,8 @@
 extends Node2D
 
+signal victory
+signal defeat
+
 onready var hud = $HUD
 onready var player = $ShipA
 onready var startTimer = $StartTimer
@@ -44,3 +47,10 @@ func on_enemy_killed(points: int):
 
 func on_enemy_fired(projectile: EnemyProjectile):
 	add_child(projectile)
+
+
+func _on_Player_died():
+	emit_signal("defeat")
+
+func _on_Waves_victory():
+	emit_signal("victory")
